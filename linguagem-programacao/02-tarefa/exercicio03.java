@@ -1,6 +1,6 @@
 class AumentarSalario {
     public static void main (String[] ang) {
-        double salario = 3000.00;
+        double salario = 2000.00;
         int aumento = 15;
         double novoSalario = ((salario * aumento) / 100) + salario;
 

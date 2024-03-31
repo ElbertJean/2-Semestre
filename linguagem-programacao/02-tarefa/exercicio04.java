@@ -1,6 +1,6 @@
 class CustoCarro {
     public static void main(String[] args) {
-        double custoFabrica = 5000;
+        double custoFabrica = 21000;
         double percentualDistribuidor = 0.28;
         double impostos = 0.45;
 

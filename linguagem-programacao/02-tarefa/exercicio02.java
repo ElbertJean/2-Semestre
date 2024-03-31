@@ -1,9 +1,9 @@
 class CalcularEleitores {
     public static void main (String[] args) {
-        int votosTotal = 5000;
-        int votosValidos = 3500;
+        int votosTotal = 2500;
+        int votosValidos = 900;
         int votosBrancos = 1000;
-        int votosNulos = 500;
+        int votosNulos = 600;
 
         double porcentagemVotosTotal = (double) votosValidos / votosTotal * 100;
         double porcentagemVotosValidos = (double) votosBrancos / votosTotal * 100;
