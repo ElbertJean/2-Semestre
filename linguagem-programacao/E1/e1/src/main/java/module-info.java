@@ -1,7 +1,7 @@
-module com.e1 {
+module com.entrega1 {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens com.e1 to javafx.fxml;
-    exports com.e1;
+    opens com.entrega1 to javafx.fxml;
+    exports com.entrega1;
 }

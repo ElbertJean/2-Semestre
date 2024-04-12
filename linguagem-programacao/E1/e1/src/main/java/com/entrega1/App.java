@@ -1,4 +1,4 @@
-package com.e1;
+package com.entrega1;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,24 +14,17 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-
+    
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("TelaPrincipal"), 550, 500);
+        stage.setTitle("EJ Multimarcas");
         stage.setScene(scene);
         stage.show();
     }
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
-    }
-
-    static void openWindowAnalysis(String analysisInterface) throws IOException{
-        Stage stage = new Stage();
-        Parent root = loadFXML(analysisInterface);
-        stage.setScene(new Scene(root));
-        stage.setTitle("Dados Importados");
-        stage.show();
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
