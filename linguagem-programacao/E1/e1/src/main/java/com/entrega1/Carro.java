@@ -15,7 +15,6 @@ public class Carro {
   }
 
   public String toString() {
-    return modelo + " - " + fabricante + " - " + placa + " - " + ano;
+    return "Modelo: " + modelo + "\nFabricante: " + fabricante + "\nPlaca: " + placa + "\nAno:" + ano;
   }
-
 }

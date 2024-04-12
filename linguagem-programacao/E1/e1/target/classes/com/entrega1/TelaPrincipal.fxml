@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -19,8 +20,8 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="550.0">
                      <children>
-                        <TextField fx:id="fabricante" alignment="CENTER" layoutX="38.0" layoutY="197.0" prefHeight="30.0" prefWidth="200.0" />
-                        <TextField fx:id="placa" alignment="CENTER" layoutX="38.0" layoutY="272.0" prefHeight="30.0" prefWidth="200.0" />
+                        <TextField fx:id="fabricanteCarro" alignment="CENTER" layoutX="38.0" layoutY="197.0" prefHeight="30.0" prefWidth="200.0" />
+                        <TextField fx:id="placaCarro" alignment="CENTER" layoutX="38.0" layoutY="272.0" prefHeight="30.0" prefWidth="200.0" />
                         <Label alignment="CENTER" layoutX="63.0" layoutY="302.0" prefHeight="30.0" prefWidth="150.0" text="Ano de Fabricacao" AnchorPane.topAnchor="302.0">
                            <font>
                               <Font name="Ubuntu Bold" size="14.0" />
@@ -29,7 +30,7 @@
                               <Insets bottom="10.0" top="20.0" />
                            </padding>
                         </Label>
-                        <TextField fx:id="ano" alignment="CENTER" layoutX="38.0" layoutY="348.0" prefHeight="30.0" prefWidth="200.0" />
+                        <TextField fx:id="anoCarro" alignment="CENTER" layoutX="38.0" layoutY="348.0" prefHeight="30.0" prefWidth="200.0" />
                         <Button layoutX="88.0" layoutY="406.0" mnemonicParsing="false" onAction="#CadastrarCarro" prefHeight="30.0" prefWidth="100.0" text="Cadastrar" />
                         <Label alignment="CENTER" layoutX="63.0" layoutY="227.0" prefHeight="30.0" prefWidth="150.0" text="Placa">
                            <font>
@@ -47,7 +48,7 @@
                               <Insets bottom="10.0" top="20.0" />
                            </padding>
                         </Label>
-                        <TextField fx:id="modelo" alignment="CENTER" layoutX="38.0" layoutY="121.0" prefHeight="30.0" prefWidth="200.0" />
+                        <TextField fx:id="modeloCarro" alignment="CENTER" layoutX="38.0" layoutY="121.0" prefHeight="30.0" prefWidth="200.0" />
                         <Label alignment="CENTER" layoutX="63.0" layoutY="75.0" prefHeight="30.0" prefWidth="150.0" text="Modelo">
                            <font>
                               <Font name="Ubuntu Bold" size="14.0" />
@@ -76,22 +77,126 @@
           </Tab>
             <Tab text="Cadastrar Moto">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="550.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="168.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+                        <TextField fx:id="corMoto" alignment="CENTER" layoutX="314.0" layoutY="198.0" prefHeight="30.0" prefWidth="200.0" />
+                        <TextField fx:id="anoMoto" alignment="CENTER" layoutX="314.0" layoutY="273.0" prefHeight="30.0" prefWidth="200.0" />
+                        <Label alignment="CENTER" layoutX="339.0" layoutY="303.0" prefHeight="30.0" prefWidth="150.0" text="Combustivel" AnchorPane.topAnchor="303.0">
+                           <font>
+                              <Font name="Ubuntu Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="combustivelMoto" alignment="CENTER" layoutX="314.0" layoutY="349.0" prefHeight="30.0" prefWidth="200.0" />
+                        <Button layoutX="364.0" layoutY="407.0" mnemonicParsing="false" onAction="#CadastrarMoto" prefHeight="30.0" prefWidth="100.0" text="Cadastrar" />
+                        <Label alignment="CENTER" layoutX="339.0" layoutY="228.0" prefHeight="30.0" prefWidth="150.0" text="Ano">
+                           <font>
+                              <Font name="Ubuntu Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="339.0" layoutY="152.0" prefHeight="30.0" prefWidth="150.0" text="Cor">
+                           <font>
+                              <Font name="Ubuntu Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="modeloMoto" alignment="CENTER" layoutX="314.0" layoutY="122.0" prefHeight="30.0" prefWidth="200.0" />
+                        <Label alignment="CENTER" layoutX="339.0" layoutY="76.0" prefHeight="30.0" prefWidth="150.0" text="Modelo">
+                           <font>
+                              <Font name="Ubuntu Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="276.0" prefHeight="78.0" prefWidth="276.0" text="Cadastrar Moto">
+                           <font>
+                              <Font name="Ubuntu Bold" size="22.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <ImageView blendMode="MULTIPLY" fitHeight="500.0" fitWidth="850.0" layoutX="-574.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@carros.jpg" />
+                              <Image url="@motos.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
                         </ImageView>
-                     </children></AnchorPane>
+                        <Button layoutX="40.0" layoutY="407.0" mnemonicParsing="false" onAction="#verListaMotos" prefHeight="30.0" prefWidth="200.0" text="Ver Lista de Motos" />
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
             <Tab text="Cadastrar Cliente">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="550.0">
+                     <children>
+                        <TextField fx:id="idade" alignment="CENTER" layoutX="38.0" layoutY="197.0" prefHeight="30.0" prefWidth="200.0" />
+                        <TextField fx:id="endereco" alignment="CENTER" layoutX="38.0" layoutY="272.0" prefHeight="30.0" prefWidth="200.0" />
+                        <Label alignment="CENTER" layoutX="63.0" layoutY="302.0" prefHeight="30.0" prefWidth="150.0" text="Telefone" AnchorPane.topAnchor="302.0">
+                           <font>
+                              <Font name="Ubuntu Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="telefone" alignment="CENTER" layoutX="38.0" layoutY="348.0" prefHeight="30.0" prefWidth="200.0" />
+                        <Button layoutX="88.0" layoutY="406.0" mnemonicParsing="false" onAction="#CadastrarCliente" prefHeight="30.0" prefWidth="100.0" text="Cadastrar" />
+                        <Label alignment="CENTER" layoutX="63.0" layoutY="227.0" prefHeight="30.0" prefWidth="150.0" text="Endereco">
+                           <font>
+                              <Font name="Ubuntu Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="63.0" layoutY="151.0" prefHeight="30.0" prefWidth="150.0" text="Idade">
+                           <font>
+                              <Font name="Ubuntu Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="nomeCompleto" alignment="CENTER" layoutX="38.0" layoutY="121.0" prefHeight="30.0" prefWidth="200.0" />
+                        <Label alignment="CENTER" layoutX="63.0" layoutY="75.0" prefHeight="30.0" prefWidth="150.0" text="Nome Completo">
+                           <font>
+                              <Font name="Ubuntu Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <Label alignment="CENTER" layoutY="-1.0" prefHeight="78.0" prefWidth="276.0" text="Cadastrar Cliente">
+                           <font>
+                              <Font name="Ubuntu Bold" size="22.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="20.0" />
+                           </padding>
+                        </Label>
+                        <ImageView blendMode="MULTIPLY" fitHeight="500.0" fitWidth="850.0" layoutX="275.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@cliente.PNG" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="314.0" layoutY="406.0" mnemonicParsing="false" onAction="#verListaClientes" prefHeight="30.0" prefWidth="200.0" text="Ver Lista de Clientes" />
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Ver Lista">
+            <Tab text="Ver lista">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
