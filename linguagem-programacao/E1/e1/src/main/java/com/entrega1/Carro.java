@@ -1,17 +1,14 @@
 package com.entrega1;
 
-public class Carro {
+public class Carro extends Automovel {
   
-  public String modelo;
   public String fabricante;
   public String placa;
-  public String ano;
 
-  public Carro(String modelo, String fabricante, String placa, String ano) {
-    this.modelo = modelo;
+  public Carro(String fabricante, String placa, String modelo, String ano) {
+    super(modelo, ano);
     this.fabricante = fabricante;
     this.placa = placa;
-    this.ano = ano;
   }
 
   public String toString() {

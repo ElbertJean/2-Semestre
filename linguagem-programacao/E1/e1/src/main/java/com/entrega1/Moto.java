@@ -1,16 +1,13 @@
 package com.entrega1;
 
-public class Moto {
+public class Moto extends Automovel{
 
-    public String modelo;
     public String cor;
-    public String ano;
     public String combustivel;
 
     public Moto(String modelo, String cor, String ano, String combustivel) {
-        this.modelo = modelo;
+        super(modelo, ano);
         this.cor = cor;
-        this.ano = ano;
         this.combustivel = combustivel;
     }
 
