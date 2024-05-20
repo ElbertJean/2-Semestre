@@ -1,71 +1,105 @@
+import static org.junit.Assertions.*;
+
+import org.junit.Test;
+
 import java.util.List;
 
 public class TestLojaDePesca {
-  public static void main(String[] args) {
 
-    // Nessa parte estou criando alguns detalhes para cada item que vou vincular ao item
-    Detalhe detalheItem1 = new Detalhe("Vara de pesca Maruri Tambaqui 30~60lbs", "2.7m", true);
-    Detalhe detalheItem2 = new Detalhe("Anzol circle hook 6/0", "6cm", false);
-    Detalhe detalheItem3 = new Detalhe("Linha ZEED monofilamanento 0.40mm", "100m", true);
+    @Test
+    void testLojaDePesca() {
+        // Criação de uma nova loja de pesca
+        LojaDePesca loja = new LojaDePesca();
 
-    // Nessa parte estou criando alguns itens para adicionar na loja
-    Item item1 = new Item("Vara Maruri", "Maruri", detalheItem1);
-    Item item2 = new Item("Anzol Marine Sports", "Marine Sports", detalheItem2);
-    Item item3 = new Item("Linha Monofilamento", "Maruri", detalheItem3);
+        // Criação de detalhes de produtos
+        Detalhe detalhe1 = new Detalhe("Vara de pesca", "2m", true);
+        Detalhe detalhe2 = new Detalhe("Anzol", "10cm", false);
+        Detalhe detalhe3 = new Detalhe("Linha", "100m", true);
 
-    // Nessa parte estou criando alguns documentos que vou vincular ao cliente
-    DocumentosCliente docCliente1 = new DocumentosCliente("12345678", "111.222.333-44");
-    DocumentosCliente docCliente2 = new DocumentosCliente("87654321", "555.666.777-88");
+        // Criação de itens
+        Item item1 = new Item("Vara Shimano", "Shimano", detalhe1);
+        Item item2 = new Item("Anzol Mustad", "Mustad", detalhe2);
+        Item item3 = new Item("Linha Trilene", "Berkley", detalhe3);
 
-    // Nessa parte estou criando um cliente
-    Cliente cliente1 = new Cliente("Elbert Jean", docCliente1);
-    Cliente cliente2 = new Cliente("Júlio Cesar", docCliente2);
+        // Cadastro de itens na loja
+        loja.cadastrarItem(item1);
+        loja.cadastrarItem(item2);
+        loja.cadastrarItem(item3);
 
-    // Nessa parte estou criando uma instância da LojaDePesca
-    LojaDePesca loja = new LojaDePesca();
+        // Verificação de itens cadastrados
+        assertEquals(3, loja.buscarItemPorNome("Vara Shimano").size());
+        assertEquals("Vara Shimano", loja.buscarItemPorNome("Vara Shimano").get(0).getNome());
 
-    // Nessa parte estou cadastrando itens na loja
-    loja.cadastrarItem(item1);
-    loja.cadastrarItem(item2);
-    loja.cadastrarItem(item3);
+        // Busca de itens por nome
+        List<Item> itemsPorNome = loja.buscarItemPorNome("Vara Shimano");
+        assertEquals(1, itemsPorNome.size());
+        assertEquals("Shimano", itemsPorNome.get(0).getMarca());
 
-    // Nessa parte estou cadastrando um cliente na loja
-    loja.cadastrarCliente(cliente1);
-    loja.cadastrarCliente(cliente2);
+        // Busca de itens por marca
+        List<Item> itemsPorMarca = loja.buscarItemPorMarca("Mustad");
+        assertEquals(1, itemsPorMarca.size());
+        assertEquals("Anzol Mustad", itemsPorMarca.get(0).getNome());
 
-    // Nessa parte estou criando uma busca de itens pelo nome
-    List<Item> itemsPorNome = loja.buscarItemPorNome("Vara Maruri");
-    System.out.println("Itens encontrados por nome 'Vara Maruri': " + itemsPorNome.size());
+        // Busca de itens por detalhe
+        List<Item> itemsPorDetalhe = loja.buscarItemPorDetalhe(detalhe1);
+        assertEquals(1, itemsPorDetalhe.size());
+        assertEquals("Vara Shimano", itemsPorDetalhe.get(0).getNome());
 
-    // Nessa parte estou buscando os itens por marca
-    List<Item> itemsPorMarca = loja.buscarItemPorMarca("Maruri");
-    System.out.println("Itens encontrados por marca 'Maruri': " + itemsPorMarca.size());
+        // Criação de documentos de clientes
+        DocumentosCliente docCliente1 = new DocumentosCliente("12345678", "111.222.333-44");
+        DocumentosCliente docCliente2 = new DocumentosCliente("87654321", "555.666.777-88");
 
-    // Aqui estou buscando os detalhes de um item
-    List<Item> itemsPorDetalhe = loja.buscarItemPorDetalhe(detalheItem1);
-    System.out.println("Itens encontrados por detalhe 'Vara de pesca Maruri Tambaqui 30~60lbs, 2.7m, novo': " + itemsPorDetalhe.size());
+        // Criação de clientes
+        Cliente cliente1 = new Cliente("João Silva", docCliente1);
+        Cliente cliente2 = new Cliente("Maria Oliveira", docCliente2);
 
-    // Buscando os clientes pelo nome
-    List<Cliente> clientesPorNome = loja.buscarClientePorNome("Júlio Cesar");
-    System.out.println("Clientes encontrados por nome 'Júlio Cesar': " + clientesPorNome.size());
+        // Cadastro de clientes na loja
+        loja.cadastrarCliente(cliente1);
+        loja.cadastrarCliente(cliente2);
 
-    // Buscando os clientes pelo documento
-    List<Cliente> clientesPorDoc = loja.buscarClientePorDocumentosCliente(docCliente1);
-    System.out.println("Clientes encontrados por documentos 'RG: 12345678, CPF: 111.222.333-44': " + clientesPorDoc.size());
+        // Verificação de clientes cadastrados
+        assertEquals(2, loja.buscarClientePorNome("João Silva").size());
+        assertEquals("João Silva", loja.buscarClientePorNome("João Silva").get(0).getNome());
 
-    // Aqui estou vinculando items ao cliente
-    loja.addItemAoCliente(cliente1, item1);
-    loja.addItemAoCliente(cliente1, item2);
+        // Busca de clientes por nome
+        List<Cliente> clientesPorNome = loja.buscarClientePorNome("Maria Oliveira");
+        assertEquals(1, clientesPorNome.size());
+        assertEquals("Maria Oliveira", clientesPorNome.get(0).getNome());
 
-    // Listar itens do cliente
-    List<Item> itemsDoCliente = loja.buscarItemDoCliente(cliente1);
-    System.out.println("Itens do cliente 'Elbert Jean': " + itemsDoCliente.toString());
+        // Busca de clientes por documentos
+        List<Cliente> clientesPorDoc = loja.buscarClientePorDocumentosCliente(docCliente1);
+        assertEquals(1, clientesPorDoc.size());
+        assertEquals("João Silva", clientesPorDoc.get(0).getNome());
 
-    // Remover item do cliente
-    loja.removeItemAoCliente(cliente1, item1);
+        // Adição de itens ao cliente
+        loja.addItemAoCliente(cliente1, item1);
+        loja.addItemAoCliente(cliente1, item2);
 
-    // Listar os itens do cliente após remover um item
-    itemsDoCliente = loja.buscarItemDoCliente(cliente1);
-    System.out.println("Itens do cliente 'Elbert Jean' após remoção: " + itemsDoCliente.toString());
-  }
+        // Verificação de itens do cliente
+        List<Item> itemsDoCliente = loja.buscarItemDoCliente(cliente1);
+        assertEquals(2, itemsDoCliente.size());
+        assertTrue(itemsDoCliente.contains(item1));
+        assertTrue(itemsDoCliente.contains(item2));
+
+        // Remoção de item do cliente
+        loja.removeItemAoCliente(cliente1, item1);
+
+        // Verificação de itens do cliente após a remoção
+        itemsDoCliente = loja.buscarItemDoCliente(cliente1);
+        assertEquals(1, itemsDoCliente.size());
+        assertFalse(itemsDoCliente.contains(item1));
+        assertTrue(itemsDoCliente.contains(item2));
+    }
+
+    private void assertTrue(boolean contains) {
+      throw new UnsupportedOperationException("Unimplemented method 'assertTrue'");
+    }
+
+    private void assertEquals(int i, int size) {
+      throw new UnsupportedOperationException("Unimplemented method 'assertEquals'");
+    }
+
+    private void assertEquals(String string, String string2) {
+      throw new UnsupportedOperationException("Unimplemented method 'assertEquals'");
+    }
 }
