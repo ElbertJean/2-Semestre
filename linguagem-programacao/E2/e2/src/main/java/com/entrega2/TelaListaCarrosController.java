@@ -1,7 +1,12 @@
 package com.entrega2;
 
+import java.io.IOException;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
@@ -9,6 +14,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 
 public class TelaListaCarrosController {
 
@@ -74,4 +80,28 @@ public class TelaListaCarrosController {
             });
         }
     }
+
+    @FXML
+    void editarCarro() {
+        Carro carroSelecionado = listView.getSelectionModel().getSelectedItem();
+        if (carroSelecionado != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaEdicaoCarro.fxml"));
+                Parent root = loader.load();
+    
+                TelaEdicaoCarroController controller = loader.getController();
+                controller.initData(carroSelecionado);
+    
+                Stage stage = new Stage();
+                controller.setStage(stage);
+                stage.setScene(new Scene(root));
+                stage.showAndWait();
+    
+                initListaCarros(DatabaseConnection.getCarros());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
 }
