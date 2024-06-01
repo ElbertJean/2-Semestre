@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.entrega2.TelaPrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="548.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.entrega2.TelaPrincipalController">
    <children>
       <TabPane layoutX="-2.0" prefHeight="500.0" prefWidth="550.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -19,46 +19,46 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="550.0">
                      <children>
-                        <TextField fx:id="fabricanteCarro" alignment="CENTER" layoutX="38.0" layoutY="197.0" prefHeight="30.0" prefWidth="200.0" />
-                        <TextField fx:id="placaCarro" alignment="CENTER" layoutX="38.0" layoutY="272.0" prefHeight="30.0" prefWidth="200.0" />
-                        <Label alignment="CENTER" layoutX="63.0" layoutY="302.0" prefHeight="30.0" prefWidth="150.0" text="Ano de Fabricacao" AnchorPane.topAnchor="302.0">
+                        <TextField fx:id="fabricanteCarro" alignment="CENTER" layoutX="38.0" layoutY="197.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: eee; -fx-border-color: bbb; -fx-border-radius: 4px;" />
+                        <TextField fx:id="placaCarro" alignment="CENTER" layoutX="38.0" layoutY="272.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: eee; -fx-border-color: bbb; -fx-border-radius: 4px;" />
+                        <Label alignment="CENTER" layoutX="63.0" layoutY="302.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #343a40;" text="Ano de Fabricacao" textFill="WHITE" AnchorPane.topAnchor="302.0">
                            <font>
-                              <Font name="Ubuntu Bold" size="14.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                            <padding>
                               <Insets bottom="10.0" top="20.0" />
                            </padding>
                         </Label>
-                        <TextField fx:id="anoCarro" alignment="CENTER" layoutX="38.0" layoutY="348.0" prefHeight="30.0" prefWidth="200.0" />
-                        <Button layoutX="88.0" layoutY="406.0" mnemonicParsing="false" onAction="#CadastrarCarro" prefHeight="30.0" prefWidth="100.0" text="Cadastrar" />
-                        <Label alignment="CENTER" layoutX="63.0" layoutY="227.0" prefHeight="30.0" prefWidth="150.0" text="Placa">
+                        <TextField fx:id="anoCarro" alignment="CENTER" layoutX="38.0" layoutY="348.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: eee; -fx-border-color: bbb; -fx-border-radius: 4px;" />
+                        <Button layoutX="63.0" layoutY="406.0" mnemonicParsing="false" onAction="#CadastrarCarro" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #444; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 8px;" text="Cadastrar" />
+                        <Label alignment="CENTER" layoutX="63.0" layoutY="227.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #343a40;" text="Placa" textFill="WHITE">
                            <font>
-                              <Font name="Ubuntu Bold" size="14.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                            <padding>
                               <Insets bottom="10.0" top="20.0" />
                            </padding>
                         </Label>
-                        <Label alignment="CENTER" layoutX="63.0" layoutY="151.0" prefHeight="30.0" prefWidth="150.0" text="Fabricante">
+                        <Label alignment="CENTER" layoutX="63.0" layoutY="151.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #343a40;" text="Fabricante" textFill="WHITE">
                            <font>
-                              <Font name="Ubuntu Bold" size="14.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                            <padding>
                               <Insets bottom="10.0" top="20.0" />
                            </padding>
                         </Label>
-                        <TextField fx:id="modeloCarro" alignment="CENTER" layoutX="38.0" layoutY="121.0" prefHeight="30.0" prefWidth="200.0" />
-                        <Label alignment="CENTER" layoutX="63.0" layoutY="75.0" prefHeight="30.0" prefWidth="150.0" text="Modelo">
+                        <TextField fx:id="modeloCarro" alignment="CENTER" layoutX="38.0" layoutY="121.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: eee; -fx-border-color: bbb; -fx-border-radius: 4px;" />
+                        <Label alignment="CENTER" layoutX="63.0" layoutY="75.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #343a40;" text="Modelo" textFill="WHITE">
                            <font>
-                              <Font name="Ubuntu Bold" size="14.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                            <padding>
                               <Insets bottom="10.0" top="20.0" />
                            </padding>
                         </Label>
-                        <Label alignment="CENTER" layoutY="-1.0" prefHeight="78.0" prefWidth="276.0" text="Cadastrar Carro">
+                        <Label alignment="CENTER" layoutY="-1.0" prefHeight="78.0" prefWidth="276.0" style="-fx-text-fill: black;" text="Cadastrar Carro" textFill="WHITE">
                            <font>
-                              <Font name="Ubuntu Bold" size="22.0" />
+                              <Font name="System Bold" size="22.0" />
                            </font>
                            <padding>
                               <Insets bottom="10.0" top="20.0" />
@@ -69,7 +69,7 @@
                               <Image url="@carros.PNG" />
                            </image>
                         </ImageView>
-                        <Button layoutX="314.0" layoutY="406.0" mnemonicParsing="false" onAction="#verListaCarros" prefHeight="30.0" prefWidth="200.0" text="Ver Lista de Carros" />
+                        <Button layoutX="314.0" layoutY="406.0" mnemonicParsing="false" onAction="#verListaCarros" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: white; -fx-text-fill: #343a40; -fx-font-weight: bold; -fx-border-color: #343A40; -fx-border-radius: 4px; -fx-background-radius: 4px;" text="Ver Lista de Carros" />
                      </children>
                   </AnchorPane>
             </content>
