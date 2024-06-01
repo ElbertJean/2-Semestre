@@ -10,11 +10,11 @@
   import javafx.fxml.FXMLLoader;
   import javafx.scene.Parent;
   import javafx.scene.Scene;
-  import javafx.scene.control.Label;
   import javafx.scene.control.TextField;
   import javafx.scene.image.ImageView;
-  import javafx.scene.layout.VBox;
   import javafx.stage.Stage;
+  import javafx.scene.control.Alert;
+  import javafx.scene.control.Alert.AlertType;
 
   public class TelaPrincipalController {
 
@@ -35,32 +35,37 @@
     @FXML
     private TextField anoCarro;
 
-    public static void exibirCarroCadastrado(Carro carro) {
-      Stage stage = new Stage();
-      stage.setTitle("Carro cadastrado com sucesso!");
-
-      Label labelModelo = new Label("Modelo: " + carro.modelo);
-      Label labelFabricante = new Label("Fabricante: " + carro.fabricante);
-      Label labelPlaca = new Label("Placa: " + carro.placa);
-      Label labelAno = new Label("Ano: " + carro.ano);
-
-      VBox vbox = new VBox(labelModelo, labelFabricante, labelPlaca, labelAno);
-      Scene scene = new Scene(vbox, 300, 200);
-
-      stage.setScene(scene);
-      stage.show();
+    public static void exibirAlerta(String mensagem, @SuppressWarnings("exports") AlertType tipo) {
+      Alert alerta = new Alert(tipo);
+      alerta.setTitle("Aviso");
+      alerta.setHeaderText(null);
+      alerta.setContentText(mensagem);
+      alerta.showAndWait();
     }
 
     @FXML
     void CadastrarCarro(ActionEvent event) {
-      Carro carro = new Carro(fabricanteCarro.getText(), placaCarro.getText(), modeloCarro.getText(), anoCarro.getText());
-      DatabaseConnection.insertCarro(carro);
-      listaCarros.add(carro);
-      exibirCarroCadastrado(carro);
-      modeloCarro.setText("");
-      fabricanteCarro.setText("");
-      placaCarro.setText("");
-      anoCarro.setText("");
+      String modelo = modeloCarro.getText();
+      String fabricante = fabricanteCarro.getText();
+      String placa = placaCarro.getText();
+      String ano = anoCarro.getText();
+
+      if (modelo.isEmpty() || fabricante.isEmpty() || placa.isEmpty() || ano.isEmpty()) {
+        exibirAlerta("Por favor, preencha todos os campos.", AlertType.WARNING);
+      } else {
+        try {
+          Carro carro = new Carro(fabricante, placa, modelo, ano);
+          DatabaseConnection.insertCarro(carro);
+          listaCarros.add(carro);
+          exibirAlerta("Carro cadastrado com sucesso!", AlertType.INFORMATION);
+          modeloCarro.setText("");
+          fabricanteCarro.setText("");
+          placaCarro.setText("");
+          anoCarro.setText("");
+        } catch (Exception e) {
+          exibirAlerta("Erro ao cadastrar o carro: " + e.getMessage(), AlertType.ERROR);
+        }
+      }
     }
 
     @FXML

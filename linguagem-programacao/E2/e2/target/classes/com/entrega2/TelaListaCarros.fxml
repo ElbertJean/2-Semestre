@@ -13,7 +13,7 @@
             <Image url="@carros.jpg" />
          </image>
       </ImageView>
-      <ListView fx:id="listView" prefHeight="369.0" prefWidth="325.0" />
+      <ListView fx:id="listView" editable="true" prefHeight="369.0" prefWidth="325.0" />
       <Button layoutX="495.0" layoutY="325.0" mnemonicParsing="false" onAction="#excluirCarro" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #DB4A2E; -fx-text-fill: white; -fx-border-color: #343A40; -fx-border-radius: 4px; -fx-font-size: 14; -fx-font-weight: bold;" text="Excluir" />
       <Button layoutX="345.0" layoutY="325.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #72BE44; -fx-text-fill: white; -fx-border-color: #343A40; -fx-border-radius: 4px; -fx-font-size: 14; -fx-font-weight: bold;" text="Editar" />
    </children>
