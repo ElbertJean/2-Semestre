@@ -68,7 +68,7 @@
                         <AnchorPane layoutX="275.0" layoutY="3.0" prefHeight="473.0" prefWidth="281.0" style="-fx-background-color: #343a4099;" />
                         <ImageView blendMode="MULTIPLY" fitHeight="500.0" fitWidth="850.0" layoutX="275.0" layoutY="-4.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@carros.PNG" />
+                              <Image url="@carro3Vertical.png" />
                            </image>
                         </ImageView>
                         <Button layoutX="314.0" layoutY="406.0" mnemonicParsing="false" onAction="#verListaCarros" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #72BE44; -fx-text-fill: white; -fx-border-color: #343A40; -fx-border-radius: 4px; -fx-font-size: 14; -fx-font-weight: bold;" text="Ver Lista de Carros" />

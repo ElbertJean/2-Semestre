@@ -14,17 +14,20 @@ import javafx.collections.ObservableList;
 public class DatabaseConnection {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/carrosdb";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "admin";
+    private static Connection conn = null;
 
-    public static Connection connect() {
-        Connection conn = null;
+    public static boolean connect(String user, String password) {
         try {
-            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            conn = DriverManager.getConnection(URL, user, password);
             System.out.println("Connected to the PostgreSQL server successfully.");
+            return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return false;
         }
+    }
+
+    public static Connection getConnection() {
         return conn;
     }
 
@@ -35,8 +38,7 @@ public class DatabaseConnection {
 
     public static void insertCarro(Carro carro) {
         String SQL = "INSERT INTO carro(fabricante, placa, modelo, ano) VALUES(?,?,?,?)";
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(SQL)) {
+        try (PreparedStatement pstmt = getConnection().prepareStatement(SQL)) {
             pstmt.setString(1, carro.fabricante);
             pstmt.setString(2, carro.placa);
             pstmt.setString(3, carro.modelo);
@@ -50,8 +52,7 @@ public class DatabaseConnection {
     public static List<Carro> getAllCarros() {
         String SQL = "SELECT * FROM carro";
         List<Carro> carros = new ArrayList<>();
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(SQL);
+        try (PreparedStatement pstmt = getConnection().prepareStatement(SQL);
              ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
                 Carro carro = new Carro(
@@ -70,21 +71,19 @@ public class DatabaseConnection {
 
     public static void deleterCarro(Carro carro) {
         String SQL = "DELETE FROM carro WHERE placa = ?";
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(SQL)) {
+        try (PreparedStatement pstmt = getConnection().prepareStatement(SQL)) {
             pstmt.setString(1, carro.placa);
             pstmt.executeUpdate();
-            System.out.println("deu certo");
+            System.out.println("Carro deletado com sucesso.");
         } catch (SQLException ex) {
-            System.out.println("deu errado");
+            System.out.println("Erro ao deletar carro.");
             System.out.println(ex.getMessage());
         }
     }
 
     public static void updateCarro(Carro carro, String placaOriginal) {
         String SQL = "UPDATE carro SET fabricante = ?, modelo = ?, ano = ?, placa = ? WHERE placa = ?";
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(SQL)) {
+        try (PreparedStatement pstmt = getConnection().prepareStatement(SQL)) {
             pstmt.setString(1, carro.fabricante);
             pstmt.setString(2, carro.modelo);
             pstmt.setString(3, carro.ano);
@@ -95,5 +94,4 @@ public class DatabaseConnection {
             System.out.println(ex.getMessage());
         }
     }
-    
 }

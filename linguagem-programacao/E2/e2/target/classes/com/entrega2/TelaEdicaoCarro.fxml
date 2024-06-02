@@ -4,16 +4,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="430.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.entrega2.TelaEdicaoCarroController">
+<AnchorPane prefHeight="428.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.entrega2.TelaEdicaoCarroController">
    <children>
-      <AnchorPane layoutX="-11.0" layoutY="1.0" prefHeight="450.0" prefWidth="286.0" style="-fx-background-color: #343a40;">
+      <AnchorPane layoutX="286.0" prefHeight="429.0" prefWidth="286.0" style="-fx-background-color: #343a40;">
          <children>
-            <TextField fx:id="fabricanteField" alignment="CENTER" layoutX="50.0" layoutY="188.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #bbb; -fx-border-radius: 4px;" />
-            <TextField fx:id="placaField" alignment="CENTER" layoutX="50.0" layoutY="263.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #bbb; -fx-border-radius: 4px;" />
-            <Label alignment="CENTER" layoutX="75.0" layoutY="293.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #ccc;" text="Ano de Fabricacao" textFill="WHITE">
+            <TextField fx:id="fabricanteField" alignment="CENTER" layoutX="51.0" layoutY="174.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #bbb; -fx-border-radius: 4px;" />
+            <TextField fx:id="placaField" alignment="CENTER" layoutX="51.0" layoutY="249.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #bbb; -fx-border-radius: 4px;" />
+            <Label alignment="CENTER" layoutX="76.0" layoutY="279.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #ccc;" text="Ano de Fabricacao" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -21,9 +23,9 @@
                   <Insets bottom="10.0" top="20.0" />
                </padding>
             </Label>
-            <TextField fx:id="anoField" alignment="CENTER" layoutX="50.0" layoutY="339.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #bbb; -fx-border-radius: 4px;" />
-            <Button layoutX="75.0" layoutY="397.0" mnemonicParsing="false" onAction="#salvarEdicao" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #444; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 8px;" text="Salvar" />
-            <Label alignment="CENTER" layoutX="75.0" layoutY="218.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #ccc;" text="Placa" textFill="WHITE">
+            <TextField fx:id="anoField" alignment="CENTER" layoutX="51.0" layoutY="325.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #bbb; -fx-border-radius: 4px;" />
+            <Button layoutX="76.0" layoutY="383.0" mnemonicParsing="false" onAction="#salvarEdicao" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #444; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 8px;" text="Salvar" />
+            <Label alignment="CENTER" layoutX="76.0" layoutY="204.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #ccc;" text="Placa" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -31,7 +33,7 @@
                   <Insets bottom="10.0" top="20.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER" layoutX="75.0" layoutY="142.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #ccc;" text="Fabricante" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="76.0" layoutY="128.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #ccc;" text="Fabricante" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -39,8 +41,8 @@
                   <Insets bottom="10.0" top="20.0" />
                </padding>
             </Label>
-            <TextField fx:id="modeloField" alignment="CENTER" layoutX="50.0" layoutY="112.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #bbb; -fx-border-radius: 4px;" />
-            <Label alignment="CENTER" layoutX="75.0" layoutY="66.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #ccc;" text="Modelo" textFill="WHITE">
+            <TextField fx:id="modeloField" alignment="CENTER" layoutX="51.0" layoutY="98.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #eee; -fx-border-color: #bbb; -fx-border-radius: 4px;" />
+            <Label alignment="CENTER" layoutX="76.0" layoutY="52.0" prefHeight="30.0" prefWidth="150.0" style="-fx-text-fill: #ccc;" text="Modelo" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -48,7 +50,7 @@
                   <Insets bottom="10.0" top="20.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER" layoutX="64.0" layoutY="14.0" prefHeight="70.0" prefWidth="172.0" style="-fx-text-fill: WHITE;" text="Editar Carro" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="65.0" prefHeight="70.0" prefWidth="172.0" style="-fx-text-fill: WHITE;" text="Editar Carro" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -58,5 +60,11 @@
             </Label>
          </children>
       </AnchorPane>
+      <ImageView fitHeight="460.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@carro2Vertical.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="429.0" prefWidth="286.0" style="-fx-background-color: #343a4050;" />
    </children>
 </AnchorPane>

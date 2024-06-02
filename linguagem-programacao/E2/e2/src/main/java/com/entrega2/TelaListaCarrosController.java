@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.control.ListCell;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
@@ -94,6 +95,8 @@ public class TelaListaCarrosController {
     
                 Stage stage = new Stage();
                 controller.setStage(stage);
+                stage.setTitle("Editar carro");
+                stage.getIcons().add(new Image(App.class.getResourceAsStream("carro.PNG")));
                 stage.setScene(new Scene(root));
                 stage.showAndWait();
     

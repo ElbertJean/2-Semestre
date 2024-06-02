@@ -6,30 +6,31 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class App extends Application {
 
-    private static Scene scene;
-    
-   @Override
+    private static Stage primaryStage;
+
+    @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
-
-        Image icon = new Image(getClass().getResourceAsStream("teste.PNG"));
-
-        stage.getIcons().add(icon);
-
-        Scene scene = new Scene(loadFXML("TelaPrincipal"), 550, 500);
+        primaryStage = stage;
         stage.setTitle("EJ Multimarcas");
-        stage.setScene(scene);
+        primaryStage.getIcons().add(new Image(App.class.getResourceAsStream("carro.PNG")));
+        showLoginScene();
         stage.show();
-
-        stage.setOnCloseRequest(event -> System.exit(0));
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    public static void showLoginScene() throws IOException {
+        Scene scene = new Scene(loadFXML("TelaLogin"));
+        primaryStage.setScene(scene);
+    }
+
+    public static void showMainScene() throws IOException {
+        Scene scene = new Scene(loadFXML("TelaPrincipal"));
+        primaryStage.setTitle("EJ Multimarcas");
+        primaryStage.setScene(scene);
+        primaryStage.setOnCloseRequest(event -> System.exit(0));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -40,5 +41,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }
