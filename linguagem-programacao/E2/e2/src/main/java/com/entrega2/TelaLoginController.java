@@ -20,6 +20,7 @@ public class TelaLoginController {
         String password = passwordField.getText();
 
         if (DatabaseConnection.connect(username, password)) {
+            ConfigManager.writeConfig(username, password);
             try {
                 App.showMainScene();
             } catch (IOException e) {
@@ -31,6 +32,18 @@ public class TelaLoginController {
             alert.setHeaderText("Falha ao conectar ao banco de dados");
             alert.setContentText("Verifique seu usuário e senha e tente novamente.");
             alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void initialize() {
+
+        String[] credentials = ConfigManager.readConfig();
+        if (credentials[0] != null && credentials[1] != null) {
+            usernameField.setText(credentials[0]);
+            passwordField.setText(credentials[1]);
+
+            handleLoginButtonAction();
         }
     }
 }
